@@ -1,0 +1,58 @@
+# versioning-uri-hearder-request
+URI Versioning:
+->version1:
+
+GET:  http://localhost:9092/v1/person
+Response:{
+    "name": "Tom Cruise"
+}
+
+->version 2:
+GET:  http://localhost:9092/v2/person
+Response:
+{
+    "name": {
+        "firstName": "Tom",
+        "lastName": "Cruise"
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------
+2.Versioning using Custom Request Header
+->version1:
+
+GET:  http://localhost:9092/person/param?version=1
+Response:{
+    "name": "Tom Cruise"
+}
+
+->version 2:
+GET: http://localhost:9092/person/param?version=1
+Response:
+{
+    "name": {
+        "firstName": "Tom",
+        "lastName": "Cruise"
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+3.Versioning using Request Header
+->version1:
+Open the Postman:
+
+Select the Headers tab and set key: X-API-KRY and Value: 1.
+ GET request: http://localhost:9092/person/header
+ Response:{
+    "name": "Tom Cruise"
+}
+
+->version 2:
+Open the Postman:
+
+Select the Headers tab and set key: X-API-KRY and Value: 2.
+ GET request: http://localhost:9092/person/header
+
+
+ 
+
+
